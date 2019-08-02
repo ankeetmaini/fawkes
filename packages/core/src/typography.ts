@@ -1,5 +1,5 @@
 import Colors from './colors';
-import { Typography } from '../types/types';
+import { Typography, Color } from '../types/types';
 
 export enum FontSizes {
   SMALL = 12,
@@ -12,45 +12,45 @@ export enum FontWeights {
   BOLD = 500,
 }
 
-// FIXME need to overrite this at app start with
-// custom theme passed
-const Typography: Typography = {
-  SMALL: {
-    regular: {
-      color: Colors.primary.dark,
-      size: FontSizes.SMALL,
-      weight: FontWeights.REGULAR,
+export default function createTypography(colors?: Color) {
+  const colorScheme = colors || Colors;
+  const typography: Typography = {
+    SMALL: {
+      regular: {
+        color: colorScheme.primary.dark,
+        size: FontSizes.SMALL,
+        weight: FontWeights.REGULAR,
+      },
+      bold: {
+        color: colorScheme.primary.darker,
+        size: FontSizes.SMALL,
+        weight: FontWeights.BOLD,
+      },
     },
-    bold: {
-      color: Colors.primary.darker,
-      size: FontSizes.SMALL,
-      weight: FontWeights.BOLD,
+    REGULAR: {
+      regular: {
+        color: colorScheme.primary.dark,
+        size: FontSizes.REGULAR,
+        weight: FontWeights.REGULAR,
+      },
+      bold: {
+        color: colorScheme.primary.darker,
+        size: FontSizes.REGULAR,
+        weight: FontWeights.BOLD,
+      },
     },
-  },
-  REGULAR: {
-    regular: {
-      color: Colors.primary.dark,
-      size: FontSizes.REGULAR,
-      weight: FontWeights.REGULAR,
+    LARGE: {
+      regular: {
+        color: colorScheme.primary.darker,
+        size: FontSizes.LARGE,
+        weight: FontWeights.REGULAR,
+      },
+      bold: {
+        color: colorScheme.primary.darker,
+        size: FontSizes.LARGE,
+        weight: FontWeights.BOLD,
+      },
     },
-    bold: {
-      color: Colors.primary.darker,
-      size: FontSizes.REGULAR,
-      weight: FontWeights.BOLD,
-    },
-  },
-  LARGE: {
-    regular: {
-      color: Colors.primary.darker,
-      size: FontSizes.LARGE,
-      weight: FontWeights.REGULAR,
-    },
-    bold: {
-      color: Colors.primary.darker,
-      size: FontSizes.LARGE,
-      weight: FontWeights.BOLD,
-    },
-  },
-};
-
-export default Typography;
+  };
+  return typography;
+}
