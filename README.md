@@ -2,6 +2,11 @@
 
 - this will be a design system, hopefully.
 
+# dev
+
+- git add .
+- yarn commit
+
 # implementation notes
 
 - [x] uses lerna + yarn workspaces
