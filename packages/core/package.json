@@ -1,0 +1,10 @@
+{
+  "name": "@fawkes/core",
+  "version": "0.0.0",
+  "description": "Core utils for fawkes",
+  "main": "src/index.ts",
+  "repository": "https://github.com/ankeetmaini/fawkes",
+  "author": "Ankeet Maini <ankeet.maini@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
