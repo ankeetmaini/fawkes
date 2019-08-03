@@ -5,15 +5,18 @@
     "packages/*"
   ],
   "scripts": {
-    "ts": "tsc --noEmit",
+    "ts": "tsc -p ./tsconfig.json --noEmit",
     "lint": "eslint 'packages/**/*.{js,ts,jsx,tsx}'",
     "lint:fix": "eslint 'packages/**/*.{js,ts,jsx,tsx}' --fix",
-    "prettier": "prettier --write packages/**/*.{js,ts,tsx,jsx}"
+    "prettier": "prettier --write packages/**/*.{js,ts,tsx,jsx}",
+    "test": "jest"
   },
   "devDependencies": {
+    "@babel/types": "^7.5.5",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
     "@commitlint/prompt": "^8.1.0",
+    "@types/jest": "^24.0.16",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.8.5",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
@@ -23,9 +26,11 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
+    "jest": "^24.8.0",
     "lerna": "^3.13.1",
     "lint-staged": "^9.2.1",
     "prettier": "1.18.2",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
   },
   "dependencies": {
@@ -42,10 +47,13 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
+      "eslint --fix",
       "git add"
     ],
     "*.{ts,tsx}": [
       "prettier --write",
+      "eslint --fix",
+      "yarn ts",
       "git add"
     ]
   },
