@@ -1,5 +1,4 @@
-import Colors from './colors';
-import { Typography, Color } from '../types/types';
+import { Typography, Color } from '../types/index';
 
 export enum FontSizes {
   SMALL = 12,
@@ -12,8 +11,7 @@ export enum FontWeights {
   BOLD = 500,
 }
 
-export default function createTypography(colors?: Color) {
-  const colorScheme = colors || Colors;
+export default function createTypography(colorScheme: Color) {
   const typography: Typography = {
     SMALL: {
       regular: {

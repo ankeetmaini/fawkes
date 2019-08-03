@@ -5,7 +5,6 @@
     "packages/*"
   ],
   "scripts": {
-    "commit": "git cz",
     "ts": "tsc --noEmit",
     "lint": "eslint 'packages/**/*.{js,ts,jsx,tsx}'",
     "lint:fix": "eslint 'packages/**/*.{js,ts,jsx,tsx}' --fix",

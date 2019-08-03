@@ -1,4 +1,4 @@
 import createTypography from './Typography';
-import Colors from './Colors';
+import Colors from './ColorScheme';
 
-export default { createTypography, colors: Colors };
+export default { createTypography, colorScheme: Colors };

@@ -1,4 +1,4 @@
-import { Color, ColorShades } from '../types/types';
+import { Color, ColorShades } from '../types/index';
 
 const purple: ColorShades = {
   lightest: '#9560B1',
