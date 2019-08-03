@@ -31,3 +31,8 @@ export interface Typography {
   REGULAR: FontVariety;
   LARGE: FontVariety;
 }
+
+export interface ThemeType {
+  colorScheme: Color;
+  typography: Typography;
+}

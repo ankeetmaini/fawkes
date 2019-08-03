@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { Color } from '../types/index';
+import { Color, ThemeType } from '../types/index';
 import Theme from './index';
 
 interface ProviderProps {
@@ -7,7 +7,7 @@ interface ProviderProps {
 }
 
 const { colorScheme, createTypography } = Theme;
-const initialContext = {
+const initialContext: ThemeType = {
   colorScheme,
   typography: createTypography(colorScheme),
 };
@@ -32,3 +32,5 @@ const ThemeProvider: FunctionComponent<ProviderProps> = ({
 };
 
 export default ThemeProvider;
+
+export const ThemeConsumer = ThemeContext.Consumer;

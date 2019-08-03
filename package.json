@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "ts": "tsc -p ./tsconfig.json --noEmit",
+    "ts-check": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint 'packages/**/*.{js,ts,jsx,tsx}'",
     "lint:fix": "eslint 'packages/**/*.{js,ts,jsx,tsx}' --fix",
     "prettier": "prettier --write packages/**/*.{js,ts,tsx,jsx}",
@@ -34,12 +34,13 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@testing-library/react": "^8.0.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "yarn ts-check && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
     }
@@ -53,7 +54,6 @@
     "*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix",
-      "yarn ts",
       "git add"
     ]
   },
