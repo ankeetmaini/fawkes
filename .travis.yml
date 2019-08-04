@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - '11'
+cache: yarn
+script:
+  - yarn ts-check
+  - yarn lint
+  - yarn test
+after_success:
+  - yarn codecov

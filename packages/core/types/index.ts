@@ -26,8 +26,13 @@ export interface Color {
   secondary: ColorShades;
 }
 
-export interface Typography {
+export interface TypographyType {
   SMALL: FontVariety;
   REGULAR: FontVariety;
   LARGE: FontVariety;
+}
+
+export interface ThemeType {
+  colorScheme: Color;
+  typography: TypographyType;
 }
