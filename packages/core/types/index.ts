@@ -1,4 +1,4 @@
-import { FontWeights, FontSizes } from '../src/TypographyFile';
+import { FontWeights, FontSizes } from '../src/Typography';
 
 export interface ColorShades {
   lightest: string;
