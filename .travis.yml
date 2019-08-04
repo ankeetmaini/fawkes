@@ -1,4 +1,6 @@
 language: node_js
+scripts:
+  - npm install codecov -g
 node_js:
   - '11'
 cache: yarn
@@ -6,3 +8,5 @@ script:
   - yarn ts-check
   - yarn lint
   - yarn test
+after_success:
+  - codecov
