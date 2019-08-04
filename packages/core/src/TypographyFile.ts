@@ -11,6 +11,7 @@ export enum FontWeights {
   BOLD = 500,
 }
 
+// typography creator
 export default function createTypography(colorScheme: Color) {
   const typography: TypographyType = {
     SMALL: {
