@@ -5,6 +5,7 @@
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
+    "@fawkes/core": "^0.0.0",
     "react": "^16.8.6"
   }
 }

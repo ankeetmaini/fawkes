@@ -1,4 +1,3 @@
-import createTypography from './Typography';
-import Colors from './ColorScheme';
+import ThemeProvider from './ThemeProvider';
 
-export default { createTypography, colorScheme: Colors };
+export default ThemeProvider;
