@@ -4,6 +4,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/packages/**/*{js,ts,jsx,tsx}',
+    '!<rootDir>/packages/**/*stories.{js,ts,jsx,tsx}',
     '!**/node_modules/**',
   ],
   coverageReporters: ['lcov', 'text-summary'],
