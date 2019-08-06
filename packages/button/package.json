@@ -1,0 +1,11 @@
+{
+  "name": "@fawkes/button",
+  "version": "0.0.0",
+  "description": "Button",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@fawkes/core": "^0.0.0",
+    "react": "^16.8.6"
+  }
+}

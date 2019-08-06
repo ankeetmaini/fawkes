@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { Color, ThemeType } from '../types/index';
-import Theme from './index';
-
+import colorScheme from './ColorScheme';
+import createTypography from './Typography';
 interface ProviderProps {
   customColorScheme?: Color;
 }
 
-const { colorScheme, createTypography } = Theme;
 const initialContext: ThemeType = {
   colorScheme,
   typography: createTypography(colorScheme),
@@ -34,3 +33,4 @@ const ThemeProvider: FunctionComponent<ProviderProps> = ({
 export default ThemeProvider;
 
 export const ThemeConsumer = ThemeContext.Consumer;
+export const Context = ThemeContext;
