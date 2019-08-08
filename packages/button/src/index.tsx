@@ -44,7 +44,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     margin: 2px 0;
     font-size: ${fontSize}px;
     color: ${theme.colorScheme.secondary.base};
-    background: ${theme.colorScheme.primary.darker};
+    background: ${theme.colorScheme.primary.base};
     cursor: ${disabled ? 'not-allowed' : 'default'};
     opacity: ${disabled ? 0.7 : 1};
     z-index: 0;
