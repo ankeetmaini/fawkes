@@ -32,5 +32,4 @@ const ThemeProvider: FunctionComponent<ProviderProps> = ({
 
 export default ThemeProvider;
 
-export const ThemeConsumer = ThemeContext.Consumer;
 export const Context = ThemeContext;

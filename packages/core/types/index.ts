@@ -32,6 +32,8 @@ export interface TypographyType {
   LARGE: FontVariety;
 }
 
+export type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
 export interface ThemeType {
   colorScheme: Color;
   typography: TypographyType;
