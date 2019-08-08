@@ -8,4 +8,5 @@ module.exports = {
     '!**/node_modules/**',
   ],
   coverageReporters: ['lcov', 'text-summary'],
+  snapshotSerializers: ['jest-emotion'],
 };

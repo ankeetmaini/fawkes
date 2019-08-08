@@ -37,6 +37,7 @@
     "eslint-plugin-react": "^7.14.3",
     "husky": "^3.0.2",
     "jest": "^24.8.0",
+    "jest-emotion": "^10.0.14",
     "lerna": "^3.13.1",
     "lint-staged": "^9.2.1",
     "prettier": "1.18.2",
@@ -46,8 +47,10 @@
   },
   "dependencies": {
     "@testing-library/react": "^8.0.7",
+    "@types/react-test-renderer": "^16.8.3",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-test-renderer": "^16.8.6"
   },
   "husky": {
     "hooks": {
