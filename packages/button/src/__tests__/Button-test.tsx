@@ -6,7 +6,7 @@ describe('button', () => {
   test('button renders', async () => {
     const { findByText } = render(
       <ThemeProvider>
-        <Button></Button>
+        <Button label="Submit" size="l"></Button>
       </ThemeProvider>,
     );
     const text = await findByText(/button/);

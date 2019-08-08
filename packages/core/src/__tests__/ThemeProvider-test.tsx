@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import ThemeProvider, { ThemeConsumer } from '../ThemeProvider';
+import ThemeProvider, { Context } from '../ThemeProvider';
 import { ThemeType } from '../../types/index';
 
 describe('theme provider', () => {
@@ -9,12 +9,12 @@ describe('theme provider', () => {
 
     render(
       <ThemeProvider>
-        <ThemeConsumer>
+        <Context.Consumer>
           {t => {
             theme = t;
             return <div />;
           }}
-        </ThemeConsumer>
+        </Context.Consumer>
       </ThemeProvider>,
     );
 
