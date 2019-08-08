@@ -9,7 +9,7 @@ exports[`button button renders 1`] = `
   margin: 2px 0;
   font-size: 30px;
   color: #E8D7F1;
-  background: #5B1F7A;
+  background: #6E2594;
   cursor: default;
   opacity: 1;
   z-index: 0;
