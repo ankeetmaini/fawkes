@@ -42,6 +42,18 @@ describe('button', () => {
     });
   });
 
+  test('button disabled works', () => {
+    const tree = renderer
+      .create(
+        <ThemeProvider>
+          <Button label="Submit" size="l" disabled></Button>
+        </ThemeProvider>,
+      )
+      .toJSON();
+    expect(tree).toHaveStyleRule('opacity', '0.7');
+    expect(tree).toHaveStyleRule('cursor', 'not-allowed');
+  });
+
   test('props are propagated', async () => {
     const onClick = jest.fn();
     const onFocus = jest.fn();
