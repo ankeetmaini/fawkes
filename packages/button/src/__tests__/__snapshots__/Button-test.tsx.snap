@@ -59,7 +59,15 @@ exports[`button button renders 1`] = `
     class="emotion-0"
     type="button"
   >
-    Submit
+    <span
+      style="display: inline-flex; align-items: center; justify-content: center;"
+    >
+      <span />
+       
+      <span>
+        Submit
+      </span>
+    </span>
   </button>
 </DocumentFragment>
 `;

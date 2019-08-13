@@ -100,6 +100,7 @@ exports[`loaders dancing dots renders 1`] = `
 
 .emotion-0 {
   display: inline-block;
+  margin: 2px;
   -webkit-animation: animation-0 1800ms linear infinite 0ms;
   animation: animation-0 1800ms linear infinite 0ms;
 }
@@ -207,6 +208,7 @@ exports[`loaders dancing dots renders 1`] = `
 
 .emotion-0 {
   display: inline-block;
+  margin: 2px;
   -webkit-animation: animation-0 1800ms linear infinite 100ms;
   animation: animation-0 1800ms linear infinite 100ms;
 }
@@ -314,6 +316,7 @@ exports[`loaders dancing dots renders 1`] = `
 
 .emotion-0 {
   display: inline-block;
+  margin: 2px;
   -webkit-animation: animation-0 1800ms linear infinite 300ms;
   animation: animation-0 1800ms linear infinite 300ms;
 }
