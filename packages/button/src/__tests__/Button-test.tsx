@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
 import ThemeProvider from '@fawkes/core';
 import { matchers } from 'jest-emotion';
-import Button from '../index';
+import Button from '../Button';
 
 expect.extend(matchers);
 afterEach(cleanup);

@@ -4,6 +4,7 @@ import React, { FunctionComponent, useContext } from 'react';
 import styled from '@emotion/styled';
 import { ThemeContext } from '@fawkes/core';
 import { ThemeType } from '@fawkes/core/types';
+import DancingDots from '@fawkes/loader';
 
 type Size = 's' | 'r' | 'l';
 interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {
@@ -35,7 +36,7 @@ const getStyles = (buttonSize: Size, theme: ThemeType) => {
 };
 const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   const theme = useContext(ThemeContext);
-  const { disabled, label, size, ...rest } = props;
+  const { disabled, label, size, loading, ...rest } = props;
   const { padding, size: fontSize } = getStyles(size, theme);
   const StyledButton = styled.button`
     display: inline-block;
@@ -48,6 +49,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
     cursor: ${disabled ? 'not-allowed' : 'default'};
     opacity: ${disabled ? 0.7 : 1};
     z-index: 0;
+    border-radius: 4px;
     &:after {
       display: block;
       position: absolute;
@@ -59,8 +61,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
       content: '';
       background: ${theme.colorScheme.secondary.base};
       transform-origin: 50% 50%;
-      transition: transform 0.2s cubic-bezier(0.04, 0.71, 0.97, 0.69),
-        opacity 0.2s cubic-bezier(0.04, 0.71, 0.97, 0.69);
+      transition: transform 0.2s, opacity 0.2s;
       transform: scaleX(0);
       opacity: 0;
     }
@@ -79,7 +80,16 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
   `;
   return (
     <StyledButton disabled={disabled} type="button" {...rest}>
-      {label}
+      <span
+        style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <span>{loading && <DancingDots dotCount={3} />}</span>{' '}
+        <span>{label}</span>
+      </span>
     </StyledButton>
   );
 };

@@ -1,14 +1,13 @@
 {
-  "name": "@fawkes/button",
+  "name": "@fawkes/loader",
   "version": "0.0.0",
-  "description": "Button",
+  "description": "Fawkes loader",
   "main": "index.ts",
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
     "@fawkes/core": "^0.0.0",
-    "@fawkes/loader": "^0.0.0",
-    "react": "^16.8.6"
+    "react": "^16.9.0"
   }
 }

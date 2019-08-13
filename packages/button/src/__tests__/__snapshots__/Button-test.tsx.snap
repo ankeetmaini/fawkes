@@ -13,6 +13,7 @@ exports[`button button renders 1`] = `
   cursor: default;
   opacity: 1;
   z-index: 0;
+  border-radius: 4px;
 }
 
 .emotion-0:after {
@@ -28,9 +29,9 @@ exports[`button button renders 1`] = `
   -webkit-transform-origin: 50% 50%;
   -ms-transform-origin: 50% 50%;
   transform-origin: 50% 50%;
-  -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.04,0.71,0.97,0.69), opacity 0.2s cubic-bezier(0.04,0.71,0.97,0.69);
-  -webkit-transition: transform 0.2s cubic-bezier(0.04,0.71,0.97,0.69), opacity 0.2s cubic-bezier(0.04,0.71,0.97,0.69);
-  transition: transform 0.2s cubic-bezier(0.04,0.71,0.97,0.69), opacity 0.2s cubic-bezier(0.04,0.71,0.97,0.69);
+  -webkit-transition: -webkit-transform 0.2s,opacity 0.2s;
+  -webkit-transition: transform 0.2s,opacity 0.2s;
+  transition: transform 0.2s,opacity 0.2s;
   -webkit-transform: scaleX(0);
   -ms-transform: scaleX(0);
   transform: scaleX(0);
