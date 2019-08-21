@@ -1,6 +1,5 @@
-import ThemeProvider, { Context } from './ThemeProvider';
-import { Omit as OmitType } from '../types/index';
+import * as ThemeProvider from './ThemeProvider';
+
 export default ThemeProvider;
 
-export const ThemeContext = Context;
-export type Omit<U, V> = OmitType<U, V>;
+export type Omit<U, V> = Pick<U, Exclude<keyof U, V>>;

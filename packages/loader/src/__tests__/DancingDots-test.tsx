@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import ThemeProvider from '@fawkes/core';
+import Theme from '@fawkes/core';
 import { matchers } from 'jest-emotion';
 import DancingDots from '../DancingDots';
 
@@ -10,9 +10,9 @@ afterEach(cleanup);
 describe('loaders', () => {
   test('dancing dots renders', async () => {
     const { asFragment } = render(
-      <ThemeProvider>
+      <Theme.ThemeProvider>
         <DancingDots dotCount={3} />
-      </ThemeProvider>,
+      </Theme.ThemeProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });

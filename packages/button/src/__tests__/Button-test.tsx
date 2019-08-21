@@ -1,7 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { render, cleanup, fireEvent } from '@testing-library/react';
-import ThemeProvider from '@fawkes/core';
+import Theme from '@fawkes/core';
+import renderer from 'react-test-renderer';
 import { matchers } from 'jest-emotion';
 import Button from '../Button';
 
@@ -11,47 +11,43 @@ afterEach(cleanup);
 describe('button', () => {
   test('button renders', async () => {
     const { asFragment } = render(
-      <ThemeProvider>
-        <Button label="Submit" size="l"></Button>
-      </ThemeProvider>,
+      <Theme.ThemeProvider>
+        <Button label="Submit" size="regular"></Button>
+      </Theme.ThemeProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('button hover animation works', () => {
+  test('button hover animation works', async () => {
     const tree = renderer
       .create(
-        <ThemeProvider>
-          <Button label="Submit" size="l"></Button>
-        </ThemeProvider>,
+        <Theme.ThemeProvider>
+          <Button label="Submit" size="regular"></Button>
+        </Theme.ThemeProvider>,
       )
       .toJSON();
 
-    // FIXME why is this not working?
-    // button's :after element to have transform: scaleX(0)
-    // expect(tree).toHaveStyleRule('transform', 'scaleX(0)', {
-    //   target: ':after',
-    // });
-
-    expect(tree).toHaveStyleRule('transform', 'scaleX(1)', {
-      target: ':active:after',
-    });
-
-    expect(tree).toHaveStyleRule('transform', 'scaleX(0.8)', {
-      target: ':hover:after',
+    expect(tree).toHaveStyleRule('transform', 'translateY(3px)', {
+      target: ':active',
     });
   });
 
-  test('button disabled works', () => {
-    const tree = renderer
-      .create(
-        <ThemeProvider>
-          <Button label="Submit" size="l" disabled></Button>
-        </ThemeProvider>,
-      )
-      .toJSON();
-    expect(tree).toHaveStyleRule('opacity', '0.7');
-    expect(tree).toHaveStyleRule('cursor', 'not-allowed');
+  test('button disabled works', async () => {
+    const onClick = jest.fn();
+    const { getByText } = render(
+      <Theme.ThemeProvider>
+        <Button
+          label="Submit"
+          size="regular"
+          disabled
+          onClick={onClick}
+        ></Button>
+      </Theme.ThemeProvider>,
+    );
+    const button = await getByText(/Submit/);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalledTimes(0);
   });
 
   test('props are propagated', async () => {
@@ -59,15 +55,15 @@ describe('button', () => {
     const onFocus = jest.fn();
     const onBlur = jest.fn();
     const { getByText } = render(
-      <ThemeProvider>
+      <Theme.ThemeProvider>
         <Button
+          size="regular"
           label="Submit"
-          size="l"
           onClick={onClick}
           onBlur={onBlur}
           onFocus={onFocus}
         ></Button>
-      </ThemeProvider>,
+      </Theme.ThemeProvider>,
     );
     const button = await getByText(/Submit/);
     fireEvent.click(button);

@@ -2,94 +2,98 @@
 
 import React, { FunctionComponent, useContext } from 'react';
 import styled from '@emotion/styled';
-import { ThemeContext } from '@fawkes/core';
-import { ThemeType } from '@fawkes/core/types';
-import DancingDots from '@fawkes/loader';
+import ThemeProvider from '@fawkes/core';
 
-type Size = 's' | 'r' | 'l';
+type Size = 'regular' | 'large' | 'small';
 interface ButtonProps extends Omit<React.HTMLProps<HTMLButtonElement>, 'size'> {
   loading?: boolean;
   label: string;
   size: Size;
   type?: 'button' | 'submit' | 'reset';
+  primary?: boolean;
+  secondary?: boolean;
 }
 
-const getStyles = (buttonSize: Size, theme: ThemeType) => {
-  const factor = {
-    s: 0,
-    r: 8,
-    l: 14,
-  };
-  const font = {
-    s: theme.typography.SMALL.bold,
-    r: theme.typography.REGULAR.bold,
-    l: theme.typography.LARGE.bold,
-  }[buttonSize];
+interface ButtonStyles {
+  padding: string;
+  color: string;
+  fontSize: number;
+  width: number;
+  height: number;
+}
+interface ButtonType {
+  size: Size;
+  secondary: boolean | undefined;
+}
 
-  const padding = {
-    s: '6px 10px',
-    r: '8px 12px',
-    l: '10px 14px',
-  }[buttonSize];
-  const { size } = font;
-  return { padding, size: size + factor[buttonSize] };
+const getStyles = (
+  { secondary, size }: ButtonType,
+  theme: ThemeProvider.Theme,
+): ButtonStyles => {
+  const color = secondary ? theme.secondaryColor : theme.primaryColor;
+  switch (size) {
+    case 'small': {
+      return {
+        color,
+        padding: '4px 16px',
+        fontSize: 12,
+        width: 86,
+        height: 24,
+      };
+    }
+
+    case 'regular': {
+      return {
+        color,
+        padding: '6px 18px',
+        fontSize: 14,
+        width: 90,
+        height: 32,
+      };
+    }
+
+    case 'large': {
+      return {
+        color,
+        padding: '6px 18px',
+        fontSize: 16,
+        width: 94,
+        height: 32,
+      };
+    }
+  }
 };
 const Button: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
-  const theme = useContext(ThemeContext);
-  const { disabled, label, size, loading, ...rest } = props;
-  const { padding, size: fontSize } = getStyles(size, theme);
+  const theme = useContext(ThemeProvider.Context);
+  const { disabled, label, size, loading, secondary, ...rest } = props;
+  const { padding, fontSize, color, width, height } = getStyles(
+    { size, secondary },
+    theme,
+  );
   const StyledButton = styled.button`
     display: inline-block;
-    position: relative;
     padding: ${padding};
-    margin: 2px 0;
+    width: ${width}px;
+    height: ${height}px;
     font-size: ${fontSize}px;
-    color: ${theme.colorScheme.secondary.base};
-    background: ${theme.colorScheme.primary.base};
-    cursor: ${disabled ? 'not-allowed' : 'default'};
-    opacity: ${disabled ? 0.7 : 1};
-    z-index: 0;
-    border-radius: 4px;
-    &:after {
-      display: block;
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      content: '';
-      background: ${theme.colorScheme.secondary.base};
-      transform-origin: 50% 50%;
-      transition: transform 0.2s, opacity 0.2s;
-      transform: scaleX(0);
-      opacity: 0;
-    }
-    &:hover {
-      color: ${theme.colorScheme.primary.base};
-      &:after {
-        transform: scaleX(0.8);
-        opacity: 1;
-      }
-    }
-    &:active {
-      &:after {
-        transform: scaleX(1);
-      }
+    background: ${disabled ? 'rgba(9, 30, 66, 0.04)' : color};
+    cursor: ${disabled ? 'not-allowed' : 'auto'};
+    border-radius: 3px;
+    border: none;
+    transition: transform 0.1s;
+    &:active:not([disabled]) {
+      transform: translateY(3px);
     }
   `;
+
+  const StyledSpan = styled.span`
+    font-family: ${theme.fontFamily};
+    color: ${disabled ? '#A5ADBA' : theme.textColor};
+  `;
+
   return (
     <StyledButton disabled={disabled} type="button" {...rest}>
-      <span
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <span>{loading && <DancingDots dotCount={3} />}</span>{' '}
-        <span>{label}</span>
-      </span>
+      <StyledSpan>{label}</StyledSpan>
     </StyledButton>
   );
 };
