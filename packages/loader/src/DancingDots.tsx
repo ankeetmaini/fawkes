@@ -7,13 +7,13 @@ const dance = keyframes`
     transform: translate3d(0, 0, 0);
   }
   60% {
-    transform: translate3d(0, -8px, 0);
+    transform: translate3d(0, -10px, 0);
   }
   80% {
-    transform: translate3d(0, 4px, 0);
+    transform: translate3d(0, 3px, 0);
   }
   90% {
-    transform: translate3d(0, -3px, 0);
+    transform: translate3d(0, -2px, 0);
   }
   95% {
     transform: translate3d(0, 1px, 0);
