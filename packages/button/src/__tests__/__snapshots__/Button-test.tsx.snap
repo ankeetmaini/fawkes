@@ -1,13 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`button button renders 1`] = `
+exports[`button button renders large 1`] = `
 <DocumentFragment>
-  .emotion-1 {
+  .emotion-0 {
+  font-family: Roboto;
+  color: #FFFFFF;
+}
+
+.emotion-1 {
+  display: inline-block;
+  padding: 6px 18px;
+  width: 94px;
+  height: 32px;
+  font-size: 16px;
+  background: #6979F8;
+  cursor: auto;
+  border-radius: 3px;
+  border: none;
+  -webkit-transition: -webkit-transform 0.1s;
+  -webkit-transition: transform 0.1s;
+  transition: transform 0.1s;
+}
+
+.emotion-1:active:not([disabled]) {
+  -webkit-transform: translateY(3px);
+  -ms-transform: translateY(3px);
+  transform: translateY(3px);
+}
+
+<button
+    class="emotion-1"
+    type="button"
+  >
+    <span
+      class="emotion-0"
+    >
+      Submit
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`button button renders regular 1`] = `
+<DocumentFragment>
+  .emotion-0 {
+  font-family: Roboto;
+  color: #FFFFFF;
+}
+
+.emotion-1 {
   display: inline-block;
   padding: 6px 18px;
   width: 90px;
   height: 32px;
   font-size: 14px;
+  background: #6979F8;
+  cursor: auto;
+  border-radius: 3px;
+  border: none;
+  -webkit-transition: -webkit-transform 0.1s;
+  -webkit-transition: transform 0.1s;
+  transition: transform 0.1s;
+}
+
+.emotion-1:active:not([disabled]) {
+  -webkit-transform: translateY(3px);
+  -ms-transform: translateY(3px);
+  transform: translateY(3px);
+}
+
+<button
+    class="emotion-1"
+    type="button"
+  >
+    <span
+      class="emotion-0"
+    >
+      Submit
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`button button renders small 1`] = `
+<DocumentFragment>
+  .emotion-1 {
+  display: inline-block;
+  padding: 4px 16px;
+  width: 86px;
+  height: 24px;
+  font-size: 12px;
   background: #6979F8;
   cursor: auto;
   border-radius: 3px;

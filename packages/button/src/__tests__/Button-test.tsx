@@ -9,10 +9,28 @@ expect.extend(matchers);
 afterEach(cleanup);
 
 describe('button', () => {
-  test('button renders', async () => {
+  test('button renders small', async () => {
+    const { asFragment } = render(
+      <Theme.ThemeProvider>
+        <Button label="Submit" size="small"></Button>
+      </Theme.ThemeProvider>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('button renders regular', async () => {
     const { asFragment } = render(
       <Theme.ThemeProvider>
         <Button label="Submit" size="regular"></Button>
+      </Theme.ThemeProvider>,
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  test('button renders large', async () => {
+    const { asFragment } = render(
+      <Theme.ThemeProvider>
+        <Button label="Submit" size="large"></Button>
       </Theme.ThemeProvider>,
     );
     expect(asFragment()).toMatchSnapshot();
