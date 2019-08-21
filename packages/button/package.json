@@ -2,7 +2,7 @@
   "name": "@fawkes/button",
   "version": "0.0.0",
   "description": "Button",
-  "main": "index.ts",
+  "main": "src/Button.tsx",
   "license": "MIT",
   "dependencies": {
     "@emotion/core": "^10.0.15",
