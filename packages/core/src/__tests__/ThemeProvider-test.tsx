@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import ThemeProvider, { Context } from '../ThemeProvider';
-import { ThemeType } from '../../types/index';
+import { Context, ThemeProvider, Theme } from '../ThemeProvider';
 
 describe('theme provider', () => {
   test('provider injects default theme', () => {
-    let theme: ThemeType | null = null;
+    let theme: Theme | null = null;
 
     render(
       <ThemeProvider>

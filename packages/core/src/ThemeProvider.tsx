@@ -1,35 +1,35 @@
 import React, { FunctionComponent } from 'react';
-import { Color, ThemeType } from '../types/index';
-import colorScheme from './ColorScheme';
-import createTypography from './Typography';
+
 interface ProviderProps {
-  customColorScheme?: Color;
+  theme?: Partial<Theme>;
 }
 
-const initialContext: ThemeType = {
-  colorScheme,
-  typography: createTypography(colorScheme),
+export interface Theme {
+  primaryColor: string;
+  secondaryColor: string;
+  fontFamily: string;
+  textColor: string;
+}
+
+const defaultTheme: Theme = {
+  primaryColor: '#6979F8',
+  secondaryColor: '#FFCF5C',
+  fontFamily: 'Roboto',
+  textColor: '#FFFFFF',
 };
 
-const ThemeContext = React.createContext(initialContext);
+const ThemeContext = React.createContext(defaultTheme);
 
-const ThemeProvider: FunctionComponent<ProviderProps> = ({
-  customColorScheme,
+export const ThemeProvider: FunctionComponent<ProviderProps> = ({
+  theme,
   children,
 }) => {
-  const themeContext = customColorScheme
-    ? {
-        colorScheme: customColorScheme,
-        typography: createTypography(customColorScheme),
-      }
-    : initialContext;
+  const themeContext = { ...defaultTheme, ...theme };
   return (
     <ThemeContext.Provider value={themeContext}>
       {children}
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;
 
 export const Context = ThemeContext;
