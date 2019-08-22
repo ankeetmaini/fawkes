@@ -9,7 +9,11 @@ coverage:
 
   status:
     project: yes
+      default:
+        threshold: 3
     patch: yes
+      default:
+        threshold: 3
     changes: no
 
 parsers:

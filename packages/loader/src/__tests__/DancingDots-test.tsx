@@ -2,7 +2,7 @@ import React from 'react';
 import { render, cleanup } from '@testing-library/react';
 import Theme from '@fawkes/core';
 import { matchers } from 'jest-emotion';
-import DancingDots from '../DancingDots';
+import DancingDots from '../../index';
 
 expect.extend(matchers);
 afterEach(cleanup);
