@@ -68,4 +68,4 @@ requiredLabels:
 blockingTitleRegex: '\bwip\b'
 
 #Which branch should this run on 
-branches: ['develop']
+branches: ['master']
