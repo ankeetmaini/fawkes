@@ -66,3 +66,5 @@ requiredLabels:
 
 # Automatic merges will be blocked if there is a match between the regular expression and title
 blockingTitleRegex: '\bwip\b'
+
+mainBranch: 'abc'
